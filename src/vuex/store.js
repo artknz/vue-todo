@@ -1,12 +1,19 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import { createStore } from 'vuex'
 
-Vue.use(Vuex);
-
-let store = new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
+const store = createStore({
+  state: {
+    notes: []
+  },
+  mutations: {
+    addNote(state, note) {
+      state.notes.push(note);
+    }
+  },
+  actions: {
+    addNote(context) {
+      context.commit('addNote');
+    }
+  },
   getters: {}
 });
 

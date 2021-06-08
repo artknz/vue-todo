@@ -61,11 +61,16 @@ export default {
       priorityValue: '',
     }
   },
+  created() {
+    this.notes = this.$store.state.notes
+  },
   methods: {
     addNewNote() {
       if(this.inputValue || this.titleValue !== '') {
         this.singleNote = this.titleValue + ' ' + this.inputValue + ' ' + this.priorityValue
         this.notes.push(this.singleNote)
+        this.$store.dispatch('addNote', this.singleNote);
+        console.log(this.$store.state.notes)
         this.inputValue = ''
         this.titleValue = ''
         this.priorityValue = ''
