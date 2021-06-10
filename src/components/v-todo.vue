@@ -1,10 +1,10 @@
 <template>
-  <div class="v-todo container">
-    <h1>{{ title }}</h1>
-    <div class="form-control">
-      <input :placeholder="placeholderTitle" type="text" class="note-title" v-model="titleValue" @keypress.enter="addNewNote" />
-      <input :placeholder="placeholderNote" type="text" v-model="inputValue" @keypress.enter="addNewNote" />
-      <form class="priority-check">
+  <!-- <div class="v-todo container"> -->
+    <h1></h1>
+    <!-- <div class="form-control"> -->
+      <!-- <input :placeholder="placeholderTitle" type="text" class="note-title" v-model="titleValue" @keypress.enter="addNewNote" /> -->
+      <!-- <input :placeholder="placeholderNote" type="text" v-model="inputValue" @keypress.enter="addNewNote" /> -->
+      <!-- <form class="priority-check">
         <p>Приоритет:</p>
         <label>
           <input
@@ -33,18 +33,18 @@
           value="⚡⚡⚡"
           class="priority-high">Высокий
         </label>
-      </form>
-      <button class="btn add" @click="addNewNote">Добавить</button>
-      <ul class="list" v-if="notes.length !== 0">
+      </form> -->
+      <!-- <button class="btn add" @click="addNewNote">Добавить</button> -->
+      <!-- <ul class="list" v-if="notes.length !== 0">
         <li class="list-item" v-for="(note, index) in notes" :key="note">
           {{ note }}
           <button class="btn done" @click="deleteNote(index)">Завершить</button>
           <button class="btn delete" @click="deleteNote(index)">Провалить</button>
         </li>
       </ul>
-      <h3 class="msg" v-if="notes.length === 0">Заметок нет</h3>
-    </div>
-  </div>
+      <h3 class="msg" v-if="notes.length === 0">Заметок нет</h3> -->
+    <!-- </div> -->
+  <!-- </div> -->
 </template>
 
 <script>
@@ -52,8 +52,8 @@ export default {
   data() {
     return {
       title: 'Заметки',
-      placeholderTitle: 'Введите название заметки',
-      placeholderNote: 'Содержание заметки',
+      // placeholderTitle: 'Введите название заметки',
+      // placeholderNote: 'Содержание заметки',
       titleValue: '',
       inputValue: '',
       singleNote: '',
@@ -66,11 +66,9 @@ export default {
   },
   methods: {
     addNewNote() {
-      if(this.inputValue || this.titleValue !== '') {
+      if(this.inputValue && this.titleValue) {
         this.singleNote = this.titleValue + ' ' + this.inputValue + ' ' + this.priorityValue
-        this.notes.push(this.singleNote)
         this.$store.dispatch('addNote', this.singleNote);
-        console.log(this.$store.state.notes)
         this.inputValue = ''
         this.titleValue = ''
         this.priorityValue = ''
@@ -84,25 +82,7 @@ export default {
 </script>
 
 <style scoped>
-  .btn {
-    color: #177E89;
-    position: relative;
-    border-radius: 99px;
-    letter-spacing: 0.05em;
-    border: 1px solid #177E89;
-    text-decoration: none;
-    text-transform: uppercase;
-    padding: 0.5rem 1.5rem;
-    font-weight: 700;
-    background: #fff;
-  }
-
-  .btn:hover {
-    cursor: pointer;
-    opacity: 0.8;
-  }
-
-  .add {
+  /* .add {
     margin-top: 20px;
   }
 
@@ -118,19 +98,19 @@ export default {
     color: #fff;
     border-color: #06d6a0;
     margin-left: auto;
-  }
+  } */
 
-  .container {
+  /* .container {
     margin: 0 auto;
     max-width: 1000px;
-  }
+  } */
 
-  .form-control {
+  /* .form-control {
     position: relative;
     margin-bottom: 0.5rem;
-  }
+  } */
 
-  .form-control input {
+  /* .form-control input {
     margin: 20px auto 0px;
     outline: none;
     border: 2px solid #ccc;
@@ -139,9 +119,9 @@ export default {
     padding: 0.5rem 1.5rem;
     border-radius: 99px;
     font-size: 1rem;
-  }
+  } */
 
-  .list {
+  /* .list {
     margin: 0;
     margin-top: 20px;
     padding: 0;
@@ -165,13 +145,5 @@ export default {
     text-align: center;
     color: #2c3e50;
     margin-top: 60px;
-  }
-
-  .priority-check {
-    width: 40%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
+  } */
 </style>

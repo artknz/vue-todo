@@ -1,24 +1,24 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router';
 
-import vTodo from '../components/v-todo.vue'
-import vList from '../components/v-list'
+import FormTodoPage from '../views/FormTodoPage.vue';
+import ListTodoPage from '../views/ListTodoPage.vue';
 
-Vue.use(Router);
+const routes = [
+  {
+    path: '/',
+    name: 'v-todo',
+    component: FormTodoPage
+  },
+  {
+    path: '/todo-list',
+    name: 'todo-list',
+    component: ListTodoPage
+  }
+]
 
-let router = new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'v-todo',
-      component: vTodo
-    },
-    {
-      path: '/todo-list',
-      name: 'todo-list',
-      component: vList
-    }
-  ]
-})
+const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
+  routes,
+});
 
 export default router;

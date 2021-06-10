@@ -1,19 +1,31 @@
 <template>
   <div id="app">
-    <vTodo />
-    <!-- <vList /> -->
+    <TodoLayout>
+      <TiltleTodo title="Заметки" />
+      <FormTodo />
+      <ListTodo />
+    </TodoLayout>
   </div>
 </template>
 
 <script>
-import vTodo from './components/v-todo.vue'
-// import vList from './components/v-list.vue'
+import TiltleTodo from './components/TitleTodo.vue';
+import ListTodo from './components/ListTodo.vue';
+import FormTodo from './components/FormTodo.vue';
+import TodoLayout from './layouts/TodoLayout.vue';
 
 export default {
   name: 'App',
+  data() {
+    return {
+      titleTodo: 'Заметки'
+    }
+  },
   components: {
-    vTodo,
-    // vList
+    TodoLayout,
+    TiltleTodo,
+    FormTodo,
+    ListTodo
   }
 }
 </script>

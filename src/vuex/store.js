@@ -1,4 +1,4 @@
-import { createStore } from 'vuex'
+import { createStore } from 'vuex';
 
 const store = createStore({
   state: {
@@ -10,8 +10,8 @@ const store = createStore({
     }
   },
   actions: {
-    addNote(context) {
-      context.commit('addNote');
+    addNote(context, payload) {
+      context.commit('addNote', payload);
     }
   },
   getters: {}
