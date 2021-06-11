@@ -1,14 +1,34 @@
 <template>
-  <input :placeholder="inputPlaceholder" type="text" class="note-title" v-model="titleValue" @keypress.enter="addNewNote" />
+  <input :placeholder="inputPlaceholder" type="text" class="note-title" v-model="updateValue" @keypress.enter="customPress" />
 </template>
 
 <script>
 export default {
   name: 'InputTodo',
+  // data() {
+  //   return {
+  //     inputValue: ''
+  //   }
+  // },
   props: {
-    inputPlaceholder: String
-  }
-}
+    inputPlaceholder: {
+      type: String,
+      default: 'Введите текст'
+    },
+    inputValue: {
+      type: String
+    },
+    customPress: {
+      type: Function,
+      default: () => console.log('error')
+    }
+  },
+  methods: {
+    updateValue(e) {
+      this.$emit('inputValue', e.target.value)
+    }
+  },
+};
 </script>
 
 <style scoped>

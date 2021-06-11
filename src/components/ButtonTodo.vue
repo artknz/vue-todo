@@ -1,15 +1,23 @@
 <template>
-  <button class="class" @click="addNewNote">Добавить</button>
+  <button :class="customClass" @click="customClick">
+    <slot />
+  </button>
 </template>
 
 <script>
 export default {
   name: 'ButtonTodo',
   props: {
-    class: String,
-    addNewNote: Function
+    customClass: {
+      type: String,
+      default: 'list__btn'
+    },
+    customClick: {
+      type: Function,
+      default: () => (console.log('error click'))
+    }
   }
-}
+};
 </script>
 
 <style scoped>

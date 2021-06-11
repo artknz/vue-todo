@@ -1,11 +1,12 @@
 <template>
   <div id="app">
     <TodoLayout>
-      <TiltleTodo title="Заметки" />
+      <TiltleTodo :title="titleTodo" />
       <FormTodo />
       <ListTodo />
     </TodoLayout>
   </div>
+  <!-- <router-view /> -->
 </template>
 
 <script>
