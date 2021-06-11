@@ -1,19 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-import FormTodoPage from '../views/FormTodoPage.vue';
-import ListTodoPage from '../views/ListTodoPage.vue';
+import FormTodoPage from '../pages/FormTodo/route';
+import ListTodoPage from '../pages/ListTodo/route';
 
 const routes = [
-  {
-    path: '/',
-    name: 'FormTodo',
-    component: FormTodoPage
-  },
-  {
-    path: '/todo-list',
-    name: 'ListTodo',
-    component: ListTodoPage
-  }
+  FormTodoPage,
+  ListTodoPage
 ]
 
 const router = createRouter({

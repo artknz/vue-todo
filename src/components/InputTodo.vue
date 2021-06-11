@@ -5,11 +5,6 @@
 <script>
 export default {
   name: 'InputTodo',
-  // data() {
-  //   return {
-  //     inputValue: ''
-  //   }
-  // },
   props: {
     inputPlaceholder: {
       type: String,

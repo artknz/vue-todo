@@ -10,7 +10,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
   .container {
     margin: 0 auto;
     max-width: 1000px;

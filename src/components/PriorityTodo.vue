@@ -38,13 +38,9 @@ export default {
       priorityValue: ''
     }
   },
-  props: {
-    inputValue: {
-      type: String
-    },
-    customPress: {
-      type: Function,
-      default: () => console.log('error')
+  watch: {
+    priorityValue(value) {
+      this.$emit('changeValue', value)
     }
   }
 };

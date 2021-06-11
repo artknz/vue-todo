@@ -14,7 +14,7 @@ export default {
     },
     customClick: {
       type: Function,
-      default: () => (console.log('error click'))
+      default: () => ''
     }
   }
 };

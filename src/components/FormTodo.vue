@@ -2,15 +2,12 @@
   <div class="form-control">
     <input :placeholder="placeholderTitle" type="text" class="note-title" v-model="titleValue" @keypress.enter="addNewNote" />
     <input :placeholder="placeholderNote" type="text" class="note-title" v-model="inputValue" @keypress.enter="addNewNote" />
-    <!-- <InputTodo :inputPlaceholder="placeholderTitle" v-model="titleValue" @keypress.enter="addNewNote" />
-    <InputTodo :inputPlaceholder="placeholderNote" v-model="inputValue" @keypress.enter="addNewNote" /> -->
-    <PriorityTodo />
+    <PriorityTodo @changeValue='onChangeValue' @keypress.enter="addNewNote" />
     <ButtonTodo :class="'list__btn add'" @click="addNewNote">{{ addButtonText }}</ButtonTodo>
   </div>
 </template>
 
 <script>
-// import InputTodo from '../components/InputTodo.vue';
 import PriorityTodo from '../components/PriorityTodo.vue';
 import ButtonTodo from '../components/ButtonTodo.vue';
 
@@ -27,23 +24,24 @@ export default {
     }
   },
   components: {
-    // InputTodo,
     PriorityTodo,
     ButtonTodo
   },
   methods: {
     addNewNote() {
-      if(this.inputValue && this.titleValue) {
-        console.log('click add')
-        this.singleNote = `${this.titleValue + this.inputValue + this.priorityValue}`
+      if(this.inputValue && this.titleValue && this.priorityValue) {
+        this.singleNote = `${this.titleValue + ' ' + this.inputValue + ' ' + this.priorityValue}`
         this.$store.dispatch('addNote', this.singleNote);
         this.inputValue = ''
         this.titleValue = ''
         this.priorityValue = ''
       }
     },
+    onChangeValue(v) {
+      return this.priorityValue = v;
+    }
   }
-}
+};
 </script>
 
 <style scoped>
@@ -52,7 +50,7 @@ export default {
     margin-bottom: 0.5rem;
   }
 
-    .note-title {
+  .note-title {
     margin: 20px auto 0px;
     outline: none;
     border: 2px solid #ccc;
