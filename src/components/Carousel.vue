@@ -5,9 +5,9 @@
         class="carousel__page"
         :currentPage="this.currentPage"
       />
-      <button class="carousel__btn" @click="prevPage()">Назад</button>
+      <button class="carousel__btn" @click="prevPage()">⏪</button>
       <button class="carousel__btn carousel__btn_fast" v-for="page in pages" :key="page" @click="`${this.currentPage = page.id}`">{{ page.id }}</button>
-      <button class="carousel__btn" @click="nextPage()">Далее</button>
+      <button class="carousel__btn" @click="nextPage()">⏩</button>
     </div>
   </div>
 </template>
@@ -67,6 +67,7 @@ export default {
     max-width: 300px;
     height: 200px;
     left: 100px;
+    border-radius: 20%;
   }
 
   .carousel__btn {

@@ -8,10 +8,6 @@
 export default {
   name: 'CarouselItem',
   props: {
-    itemPage: {
-      type: Object,
-      default: () => {}
-    },
     currentPage: {
       type: Number,
       default: 1
@@ -24,7 +20,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>
