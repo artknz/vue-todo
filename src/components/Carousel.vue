@@ -6,7 +6,7 @@
         :currentPage="this.currentPage"
       />
       <button class="carousel__btn" @click="prevPage()">Назад</button>
-      <button class="carousel__btn carousel__btn_fast" v-for="page in pages" :key="page" @click="`${updatePage()}`">{{ page.id }}</button>
+      <button class="carousel__btn carousel__btn_fast" v-for="page in pages" :key="page" @click="`${this.currentPage = page.id}`">{{ page.id }}</button>
       <button class="carousel__btn" @click="nextPage()">Далее</button>
     </div>
   </div>
@@ -43,7 +43,7 @@ export default {
       }
     },
     updatePage() {
-      return this.currentPage;
+      this.currentPage
     }
   }
 }
