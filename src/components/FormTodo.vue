@@ -30,15 +30,19 @@ export default {
   methods: {
     addNewNote() {
       if(this.inputValue && this.titleValue && this.priorityValue) {
-        this.singleNote = `${this.titleValue + ' ' + this.inputValue + ' ' + this.priorityValue}`
-        this.$store.dispatch('addNote', this.singleNote);
-        this.inputValue = ''
-        this.titleValue = ''
-        this.priorityValue = ''
+        this.$store.dispatch('addNote', this.createNote);
+        this.inputValue = '';
+        this.titleValue = '';
+        this.priorityValue = '';
       }
     },
     onChangeValue(v) {
       return this.priorityValue = v;
+    }
+  },
+  computed: {
+    createNote() {
+      return `${this.titleValue} ${this.inputValue} ${this.priorityValue}`;
     }
   }
 };
