@@ -1,6 +1,6 @@
 <template>
   <div class="carousel__item">
-    <img :src="require(`../assets/images/${renderPage()}.png`)" alt="картинка" />
+    <img :src="imageUrl" alt="картинка" />
   </div>
 </template>
 
@@ -13,9 +13,9 @@ export default {
       default: 1
     }
   },
-  methods: {
-    renderPage() {
-      return this.currentPage;
+  computed: {
+    imageUrl() {
+      return require(`../assets/images/${this.currentPage}.png`);
     }
   }
 }
